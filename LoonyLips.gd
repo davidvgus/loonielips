@@ -1,6 +1,7 @@
 extends Control
 
 
+
 func _ready():
 	var prompts = ["Yann", "banana", "tingly", "glam"]
 	var story : String = "name %s noun %s adj %s adj %s "
