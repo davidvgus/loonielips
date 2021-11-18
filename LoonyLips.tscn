@@ -34,10 +34,10 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 24.0
-margin_top = 24.0
-margin_right = -24.0
-margin_bottom = -24.0
+margin_left = 31.0
+margin_top = -2.0
+margin_right = -17.0
+margin_bottom = -25.0
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -46,8 +46,8 @@ __meta__ = {
 [node name="DisplayText" type="Label" parent="VBoxContainer"]
 margin_top = -1.0
 margin_right = 976.0
-margin_bottom = 536.181
-rect_min_size = Vector2( 0, 537.181 )
+margin_bottom = 499.181
+rect_min_size = Vector2( 0, 500.181 )
 hint_tooltip = "fuck!"
 mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
@@ -57,22 +57,31 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
-margin_top = 541.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 504.0
 margin_right = 976.0
 margin_bottom = 577.0
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+margin_right = 899.0
+margin_bottom = 73.0
+size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureButton" type="TextureButton" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+margin_left = 903.0
+margin_right = 976.0
+margin_bottom = 73.0
+rect_min_size = Vector2( 73, 73 )
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 5 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="text_entered" from="VBoxContainer/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="text_entered" from="VBoxContainer/HBoxContainer/LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/TextureButton" to="." method="_on_TextureButton_pressed"]
